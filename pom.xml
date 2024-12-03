@@ -51,6 +51,12 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>com.browserstack</groupId>
+            <artifactId>browserstack-java-sdk</artifactId>
+            <version>LATEST</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
             <groupId>org.junit.platform</groupId>
             <artifactId>junit-platform-launcher</artifactId>
             <version>${junit-platform-suite.version}</version>
@@ -112,6 +118,9 @@
                         <include>**/*TestSuite.java</include>
                         <include>**/When*.java</include>
                     </includes>
+                    <argLine>
+                        -javaagent:${com.browserstack:browserstack-java-sdk:jar}
+                    </argLine>
                     <systemPropertyVariables>
                         <webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
                     </systemPropertyVariables>
